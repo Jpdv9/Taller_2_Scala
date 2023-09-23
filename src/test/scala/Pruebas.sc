@@ -15,3 +15,15 @@ chip_or(List(1,1))
 chip_or(List(1,0))
 chip_or(List(0,1))
 chip_or(List(0,0))
+
+val ha = half_adder
+ha(List(0,0))
+ha(List(0,1))
+ha(List(1,0))
+ha(List(1,1))
+
+val fa = full_adder
+fa(List(1,1,0))
+fa(List(1,1,1))
+fa(List(0,1,0))
+fa(List(0,1,1))
