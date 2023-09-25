@@ -50,15 +50,35 @@ package object Circuitos {
         salidaC ++ salidaS
 
       } else
-        Nil
+          Nil
 
     }
 
   }
 
-  /*
-  def adder(n: Int): Chip = {
 
-  }*/
+  def adder(n: Int): Chip = {
+    (bits: List[Int]) => {
+      if (bits.length == 2 * n) {
+        def agregarBits(i: Int, acarreo: Int, resultado: List[Int]): List[Int] = {
+          if (i < 0) {
+            acarreo :: resultado
+          } else {
+            val a = bits(i)
+            val b = bits(i + n)
+            val s = (a ^ b) ^ acarreo
+            val salidaC = (a & b) | ((a ^ b) & acarreo)
+            agregarBits(i - 1, salidaC, s :: resultado)
+          }
+        }
+
+        agregarBits(n - 1, 0, Nil)
+
+      } else {
+        Nil
+      }
+    }
+  }
+
 
 }
